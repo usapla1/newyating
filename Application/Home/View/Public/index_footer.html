@@ -1,0 +1,40 @@
+<div id="footer">
+    <div class="wrapper">
+        <a href="#" target="_blank" rel="nofollow">联系我们</a>
+        <a href="#" target="_blank">学校首页</a>
+        <div class="copyright">&copy;2015-2016 <a target="_blank" href="#">京ICP备11111111号-1</a></div>
+    </div>
+</div>
+<div class="back_to_top" id="back_to_top">
+	<div class="back">
+		<div style="display: none;">回到顶部</div>
+	</div>
+</div>
+<!-- 返回顶部 -->
+<script>
+	$(function(){
+		//回到顶部组件出现设置
+		$(window).scroll(function(){
+			if($(window).scrollTop()>200){
+				$(".back").fadeIn(400);
+			}else{
+				$(".back").fadeOut(400);
+			}
+		})
+
+		//回到顶部hover效果
+		$(".back_to_top .back, .steer, .sub").hover(function(){
+			$(this).find("div").css("display","block");
+		},function(){
+			$(this).find("div").css("display","none");
+		})
+
+		//设置滚回顶部方法
+		$(".back").click(function(){
+			$("body,html").animate({scrollTop:0}, 500);
+			return false;
+		})
+	});
+</script>
+</body>
+</html>

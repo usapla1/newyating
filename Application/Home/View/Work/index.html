@@ -1,0 +1,87 @@
+<block name="include"><include file="Public:header5" /></block>
+<body>
+<div id="body">
+    <div id="header">
+        <div class="wrapper">
+            <a  href="{:U('Index/index')}" class="logo" style="margin:10px auto">
+          <img src="{:C('Base_Url')}images/logo4.png" width="400" height="83" alt="招聘" />
+        </a>
+            <ul id="navheader" class="reset">
+                <li><a href="{:U('Index/index')}">首页</a></li>
+                <li class="current"><a rel="nofollow" href="{:U('Work/index')}">职位管理</a></li>
+            </ul>
+            <dl class="collapsible_menu">
+                <dt>
+                    <span>{$username}&nbsp;</span>
+                    <span class="red dn" id="noticeDot-1"></span>
+                    <i></i>
+                </dt>
+                <dd style="display: none;">
+                    <a href="{:U('Work/index')}">我发布的职位</a>
+                </dd>
+                <dd style="display: none;">
+                    <a href="{:U('Work/workchose')}">我收到的简历</a>
+                </dd>
+                <dd class="btm" style="display: none;">
+                    <a href="{:U('Index/index')}">我的公司主页</a>
+                </dd>
+                <dd class="logout" style="display: none;">
+                    <a rel="nofollow" href="{:U('Index/logout')}">退出</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+   <!-- end #header -->
+    <div id="container">
+        <div class="sidebar">
+            <a class="btn_create" href="{:U('Work/create')}">发布新职位</a>
+            <dl class="company_center_aside">
+                <dt>
+                    职位管理
+                </dt>
+                <dd>
+                    <a href="{:U('Work/index')}">职位列表</a>
+                </dd>
+                <dd>
+                    <a href="{:U('Work/workchose')}">简历筛选</a>
+                </dd>
+                <dd>
+                    <a href="{:U('Mail/index')}">面试通知</a>
+                </dd>
+            </dl>
+        </div>
+    <!-- end .sidebar --> 
+    <div class="content">
+    <dl class="company_center_content">
+        <dt>
+            <h1><em></em>职位列表 <span>（共<i style="color:#fff;font-style:normal" id="positionNumber">{$count}</i>个）</span></h1>
+        </dt>
+        <dd>
+            <form id="searchForm">
+              <input type="hidden" value="Publish" name="type">
+          <ul class="reset my_jobs">
+              <volist name="list" id="vo">
+            <li data-id="{$vo.workid}">
+                    <h3><a target="_blank" title="前端开发工程师" href="#">{$vo.work_title}</a><span>[{$vo.workaddress}]</span></h3>
+                    <span class="receivedResumeNo">
+            </span>
+                    <div>{$vo.positionname}/ {$vo.salarymin}k-{$vo.salarymax}k / {$vo.workyear}年 / {$vo.education}及以上</div>
+                    <div class="c9">投递时间： {$vo.create_time}</div>
+            <div class="links">
+              <a class="job_refresh" href="javascript:location.reload()">刷新<span>每个职位7天内只能刷新一次</span></a>
+              <a target="_blank" class="job_edit" href="doedit/workid/{$vo.workid}">编辑</a>
+              <a class="job_del" href="del/workid/{$vo.workid}">删除</a>
+                    </div>
+                </li>
+              </volist>
+              </ul>
+      </form>
+    </dd>
+    </dl>
+</div><!-- end .content -->
+<script src="{:C('Base_Url')}js/job_list.min.js" type="text/javascript"></script>
+      <div class="clear"></div>
+        <a rel="nofollow" title="回到顶部" id="backtop"></a>
+      </div><!-- end #container -->
+  </div><!-- end #body -->
+<block name="include"><include file="Public:footer3" /></block>

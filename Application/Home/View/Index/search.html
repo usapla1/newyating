@@ -1,0 +1,119 @@
+<block name="include"><include file="Public:header2" /></block>
+<body>
+<div>
+    <div id="body">
+        <div id="header">
+            <div class="wrapper">
+                <a  href="{:U('Index/index')}" class="logo">
+                <img src="{:C('Base_Url')}images/logo4.png" width="400" height="83" alt="招聘" />
+            </a>
+                <div class="searchBox">
+                    <form id="searchForm" name="searchForm" action="http://127.0.0.1/newfish/index.php/Home/Index/search/" method="get">
+                        <input type="text" id="search_input" name = "work_title"  tabindex="1" value=""  placeholder="请输入职位名称，如：产品经理"  />
+                        <input type="submit" id="search_button" value="搜索" />
+                    </form>
+                </div>
+            </div>
+        </div><!-- end #header -->
+        <div id="container">
+            <div id="sidebar">
+                <!--图片轮训-->
+                <div class="slider">
+                    <ul class="slider-main">
+                        <li class="slider-panel">
+                            <a href="http://www.wynca.com/index.php/news/info/999" target="_blank"><img alt="季诚建董事长带队赴九江石化交流智能制造" title="季诚建董事长带队赴九江石化交流智能制造" src="{:C('Base_Url')}images/4.jpg"></a>
+                        </li>
+                        <li class="slider-panel">
+                            <a href="http://www.wynca.com/index.php/news/info/987" target="_blank"><img alt="新安集团领导调研江苏子公司" title="新安集团领导调研江苏子公司" src="{:C('Base_Url')}images/1.jpg"></a>
+                        </li>
+                        <li class="slider-panel">
+                            <a href="http://www.wynca.com/index.php/news/info/987" target="_blank"><img alt="董事长带队赴传化集团学习交流" title="董事长带队赴传化集团学习交流" src="{:C('Base_Url')}images/2.jpg"></a>
+                        </li>
+                        <li class="slider-panel">
+                            <a href="http://www.wynca.com/index.php/news/info/991" target="_blank"><img alt="王伟书记参加省石化协会二届六次理事会" title="王伟书记参加省石化协会二届六次理事会" src="{:C('Base_Url')}images/3.jpg"></a>
+                        </li>
+                    </ul>
+                    <div class="slider-extra">
+                        <ul class="slider-nav">
+                            <li class="slider-item">1</li>
+                            <li class="slider-item">2</li>
+                            <li class="slider-item">3</li>
+                            <li class="slider-item">4</li>
+                        </ul>
+                        <div class="slider-page">
+                            <a class="slider-pre" href="javascript:;;"><</a>
+                            <a class="slider-next" href="javascript:;;">></a>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="mainNavs">
+                    <div class="menu_box">
+                        <div class="menu_main">
+                            <a class="sidebarHref" href="{:U('Register/index')}" title="快速注册"><h2>快速注册<span></span></h2></a>
+                        </div>
+                    </div>
+                    <div class="menu_box">
+                        <div class="menu_main">
+                            <a class="sidebarHref" href="{:U('Login/index')}" title="个人用户登录"><h2>个人用户登录<span></span></h2></a>
+                        </div>
+                    </div>
+                    <div class="menu_box">
+                        <div class="menu_main">
+                            <a class="sidebarHref" href="{:U('Login/index')}" title="企业用户登陆"><h2>企业用户登陆<span></span></h2></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <style>
+                    .ui-autocomplete{width:488px;background:#fafafa !important;position: relative;z-index:10;border: 2px solid #91cebe;}
+                    .ui-autocomplete-category{font-size:16px;color:#999;width:50px;position: absolute;z-index:11; right: 0px;/*top: 6px; */text-align:center;border-top: 1px dashed #e5e5e5;padding:5px 0;}
+                    .ui-menu-item{ *width:439px;vertical-align: middle;position: relative;margin: 0px;margin-right: 50px !important;background:#fff;border-right: 1px dashed #ededed;}
+                    .ui-menu-item a{display:block;overflow:hidden;}
+                </style>
+                <script type="text/javascript" src="js/search.min.js"></script>
+                <dl class="company_center_content">
+                    <dt>
+                    <h1><em></em>搜索结果 <span>（共<i style="color:#fff;font-style:normal" id="positionNumber">{$count}</i>个）</span></h1>
+                    </dt>
+                    <dd>
+    
+    
+                        <ul class="reset my_jobs">
+                            <volist name="lists2" id="vo">
+                                <form id="searchForm" action="{:U('Resume/sendresume')}" method="post">
+                                    <input type="hidden" value="{$vo.workid}" name="workid">
+                                    <input type="hidden" value="{$vo.work_title}" name="work_title">
+                                    <li data-id="149594">
+                                        <h3>
+                                            <a target="_blank" title="随便写" href="http://www.lagou.com/jobs/149594.html">{$vo.work_title}</a>
+                                            <span>[{$vo.workaddress}]</span>
+                                        </h3>
+                                    <span class="receivedResumeNo">
+                                        <a href="unHandleResumes.html?positionId=149594">应聘简历(5)</a>
+                                    </span>
+                                        <div>{$vo.positionname}/ {$vo.salarymin}k-{$vo.salarymax}k / {$vo.workyear}年 / {$vo.education}及以上</div>
+                                        <div class="c9">发布时间： {$vo.create_time}</div>
+                                        <div class="links">
+                                            <input type="submit" class="job_del" value="投递">
+                                        </div>
+                                    </li>
+                                </form>
+                            </volist>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+    <div class="wrapper">
+        <a href="#" target="_blank" rel="nofollow">联系我们</a>
+        <a href="#" target="_blank">学校首页</a>
+        <div class="copyright">&copy;2015-2016 <a target="_blank" href="#">京ICP备11111111号-1</a></div>
+    </div>
+</div>
+</div>
+</body>
+</html>

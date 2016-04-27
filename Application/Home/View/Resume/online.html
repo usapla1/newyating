@@ -1,0 +1,167 @@
+<block name="include"><include file="Public:header5" /></block>
+<body >
+<div id="body">
+	<div id="header">
+    	<div class="wrapper">
+    		<a  href="{:U('Index/index')}" class="logo" style="margin:10px auto">
+          <img src="{:C('Base_Url')}images/logo4.png" width="400" height="83" alt="招聘" />
+        </a>
+			<ul id="navheader" class="reset">
+				<li><a href="{:U('Index/index')}">首页</a></li>
+				<li class="current"><a rel="nofollow" href="{:U('User/index')}">个人中心</a></li>
+			</ul>
+			<dl class="collapsible_menu">
+				<dt>
+					<span>{$user}&nbsp;</span>
+					<span class="red dn" id="noticeDot-1"></span>
+					<i></i>
+				</dt>
+				<dd><a rel="nofollow" href="Individual.html">我的简历</a></dd>
+				<dd style="display: none;"><a href="{:U('Index/index')}">我要找工作</a></dd>
+				<dd class="logout" style="display: none;"><a rel="nofollow" href="{:U('Index/logout')}">退出</a></dd>
+		</div>
+    </div><!-- end #header -->
+    <div id="container">
+            <div class="content">
+            	<dl class="company_center_content">
+                    <dt>
+                        <h1>
+                            <em></em>
+                            {$list.username}简历
+                        </h1>
+                    </dt>
+                    <dd>
+                    	<!--表单提交简历-->
+                    	<form action="aaa" method="post" id="jobForm">
+                            <input type="hidden" value="" name="id">
+                            <table class="btm">
+                            	<tbody>
+                            		<tr>
+                                	<td>姓名：</td>
+                                	<td id="cname">
+										{$list.username}
+                                    </td>
+                                </tr>
+                            	<tr>
+                                	<td>性别：</td>
+                                	<td id="csex">
+										{$list.sex}
+                                    </td>
+                                </tr>
+                                <tr>
+                                	<td>民族：</td>
+                                	<td id="cnation">
+										{$list.mingzhu}
+                                    </td>
+                                </tr>
+                                <tr>
+                                	<td>婚否:</td>
+                                	<td id="cmarried">
+										{$list.hunyin}
+                                    </td>
+                                </tr>
+                                <tr>
+                                	<td>政治面貌:</td>
+                                	<td id="clands">
+										{$list.shenfen}
+                                    </td>
+                                </tr>
+                            	<tr>
+                                	<td>籍贯:</td>
+                                	<td id="ccity">
+										{$list.jiguan}
+                                    </td>
+                                </tr>
+                                <tr>
+                                	<td>现居地：</td>
+                                	<td id="cadd">
+										{$list.adress}
+                                    </td>
+                                </tr>
+                                <tr>
+                                	<td>手机号码：</td>
+                                	<td id="cphone">
+										{$list.telphone}
+                                    </td>
+                                </tr>
+                                <tr>
+                                	<td>邮箱：</td>
+                                	<td id="email">
+										{$list.email}
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                            
+                            <table class="btm">
+                            	<tbody>
+                            	<tr>
+                                	<td>教育经历：</td>
+                                	<td id="ceducation">
+										{$list.edu}
+                                    </td>
+                                </tr>
+                            	<tr>
+                                	<td>获奖情况：</td>
+                                	<td id="chonors">
+										{$list.reward}
+                                    </td>
+                                </tr>
+                            </tbody></table>
+
+                            <table class="btm">
+                            	<tbody><tr>
+                                	<td width="100">工作经历：</td>
+                                	<td id="cexp">
+										{$list.work}
+                                    </td>
+                                </tr>
+                            	<tr>
+                                	
+                                	<td>掌握技能：</td>
+                                	<td id="cskill">
+										{$list.skill}
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                           
+                            <table class="btm">
+                            	<tbody><tr>
+                                	<td>自我评价：</td>
+                                	<td>
+										{$list.selftalk}
+                                    </td>
+                                </tr>
+                            	<tr>
+                                	<td>职业规划：</td>
+                                	<td>
+										{$list.hopework}
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                            
+                            <table>
+                            	<tbody><tr>
+                                	<td colspan="2">
+                                    	接收简历邮箱： <span id="receiveEmailVal">{$list.email}</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                	<td width="25"></td>
+                                </tr>
+                                <tr>
+                                	<td colspan="2">
+                                    	<!--<input type="button" value="编辑" id="formSubmit" class="btn_32">-->
+                                    </td>
+                                </tr>
+                         	</tbody>
+                        </table>
+                        </form>
+                    </dd>
+                </dl>
+            </div><!-- end .content -->
+			<div class="clear"></div>
+			<input type="hidden" value="c29d4a7c35314180bf3be5eb3f00048f" id="resubmitToken">
+	    	<a rel="nofollow" title="回到顶部" id="backtop" style="display: none;"></a>
+	    </div><!-- end #container -->
+	</div><!-- end #body -->
+<block name="include"><include file="Public:footer3" /></block>

@@ -1,0 +1,162 @@
+<block name="include"><include file="Public:header5" /></block>
+<body>
+<div id="body">
+    <div id="header">
+        <div class="wrapper">
+            <a  href="{:U('Index/index')}" class="logo" style="margin:10px auto">
+          <img src="{:C('Base_Url')}images/logo4.png" width="400" height="83" alt="招聘" />
+        </a>
+            <ul id="navheader" class="reset">
+                <li><a href="{:U('Index/index')}">首页</a></li>
+                <li class="current"><a rel="nofollow" href="{:U('Work/index')}">职位管理</a></li>
+            </ul>
+            <dl class="collapsible_menu">
+                <dt>
+                    <span>{$user}&nbsp;</span>
+                    <span class="red dn" id="noticeDot-1"></span>
+                    <i></i>
+                </dt>
+                <dd style="display: none;">
+                    <a href="{:U('Work/index')}">我发布的职位</a>
+                </dd>
+                <dd style="display: none;">
+                    <a href="{:U('Work/workchose')}">我收到的简历</a>
+                </dd>
+                <dd class="btm" style="display: none;">
+                    <a href="{:U('Index/index')}">我的公司主页</a>
+                </dd>
+                <dd class="logout" style="display: none;">
+                    <a rel="nofollow" href="{:U('Index/logout')}">退出</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <!-- end #header -->
+    <div id="container">
+        <div class="sidebar">
+            <a class="btn_create" href="{:U('Work/create')}">发布新职位</a>
+            <dl class="company_center_aside">
+                <dt>
+                    职位管理
+                </dt>
+                <dd>
+                    <a href="{:U('Work/index')}">职位列表</a>
+                </dd>
+                <dd>
+                    <a href="{:U('Seeker/index')}">简历筛选</a>
+                </dd>
+                <dd>
+                    <a href="{:U('Mail/index')}">面试通知</a>
+                </dd>
+            </dl>
+        </div>
+        <!-- end .sidebar -->
+        <div class="content">
+                <dl class="company_center_content">
+                    <dt>
+                        <h1>
+                            <em></em>
+                            职位说明
+                        </h1>
+                    </dt>
+                    <dd>
+                        <!--表单提交简历-->
+                        <form action="{:U('Resume/sendresume')}" method="post" id="jobForm">
+                            <input type="hidden" value="{$vo.workid}" name="workid">
+                            <table class="btm">
+                                <tbody>
+                                    <tr>
+                                    <td>职位名称：</td>
+                                    <td id="pname">
+                                        {$list.work_title}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>工作地点：</td>
+                                    <td id="pplace">
+                                        {$list.workaddress}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>工作性质：</td>
+                                    <td id="ptype">
+                                        {$list.work_type}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>工作经验要求:</td>
+                                    <td id="pexp">
+                                        {$list.workyear}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>学历要求：</td>
+                                    <td id="pedu">
+                                        {$list.education}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>工资待遇：</td>
+                                    <td id="ptreatment">
+                                        {$list.salarymin}~{$list.salarymax}k
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>招聘人数：</td>
+                                    <td id="pcount">
+                                        {$list.work_num}人
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>HR邮箱：</td>
+                                    <td id="pmail">
+                                        {$list.receiveemail}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                            
+                            <table class="btm">
+                                <tbody>
+                                <tr>
+                                    <td>职位简介：</td>
+                                    <td id="pdes">
+                                        <p>公司现因运营需要，特向社会招聘财务助理、会计各2名，<br/>优秀应届生也欢迎加入。。。
+                                        要求如下：<br/>工作内容：<br/>1.每月核算门店及公司工资
+                                        <br/>2.门店财务对接<br/>3.报销</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>职位要求：</td>
+                                    <td id="pask">
+                                        <p>
+                                            任职资格：<br/>1、认真细致，爱岗敬业，吃苦耐劳，服从领导，有良好的职业操守；<br/>2、思维敏捷，接受能力强，能独立思考，善于总结工作经验；<br/>3、熟练应用财务及Office办公软件；<br/>4、具有良好的沟通能力；<br/>5、有会计从业资格证书。</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                            <table>
+                                <tbody><tr>
+                                    <td colspan="2">
+                                        接收简历邮箱： <span id="receiveEmailVal">{$list.receiveemail}</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="25"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <input type="submit" value="投递简历" id="formSubmit" class="btn_32">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </form>
+                    </dd>
+                </dl>
+            </div><!-- end .content -->
+            <div class="clear"></div>
+            <a rel="nofollow" title="回到顶部" id="backtop" style="display: none;"></a>
+        </div><!-- end #container -->
+    </div><!-- end #body -->
+<block name="include"><include file="Public:footer3" /></block>

@@ -31,7 +31,7 @@
 				<dd><a href="{:U('User/feedback')}">人事反馈</a></dd>
             </dl>
         </div><!-- end .sidebar -->
-<div class="content">
+<div class="content"  style="margin-left: 50px;">
     <dl class="company_center_content">
         <dt>
             <h1><em></em>申请记录 <span>（共<i style="color:#fff;font-style:normal" id="positionNumber">{$count}</i>个）</span></h1>
@@ -42,7 +42,7 @@
 			    <ul class="reset my_jobs">
 					<volist name="list" id="vo">
 				    <li data-id="149594">
-		                <h3><a target="_blank" title="前端开发工程师" href="positionDetail.html?pid=i">{$vo.work_title}</a></h3>
+		                <h3>{$vo.work_title}</a></h3>
 		                <span class="receivedResumeNo">
 							是否查看:<if condition="$vo.is_look eq 1 ">已查看
 							<else /> <strong>未查看</strong>
@@ -53,7 +53,7 @@
 		                <div class="c9">投递时间： {$vo.create_time}</div>
 						<div class="links">
 							<a class="job_refresh" href="javascript:location.reload()">刷新<span>每个职位7天内只能刷新一次</span></a>
-							<a target="_blank" class="job_edit" href="http://127.0.0.1/newfish/index.php/Home/Work/show/workid/{$vo.workid}">查看详情</a>
+							<a target="_blank" class="job_edit" href="http://127.0.0.1/newfish/index.php/Home/Work/workinfos/workid/{$vo.workid}">查看详情</a>
 							<a class="job_del" href="http://127.0.0.1/newfish/index.php/Home/User/apdel/seekid/{$vo.seekid}">删除</a>
 		                </div>
 		            </li>

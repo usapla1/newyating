@@ -65,6 +65,7 @@
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
             <div class="content">
                 <style>
                     .ui-autocomplete{width:488px;background:#fafafa !important;position: relative;z-index:10;border: 2px solid #91cebe;}
@@ -105,6 +106,48 @@
                     </dd>
                 </dl>
             </div>
+=======
+        </div>
+        <div class="content">
+            <style>
+                .ui-autocomplete{width:488px;background:#fafafa !important;position: relative;z-index:10;border: 2px solid #91cebe;}
+                .ui-autocomplete-category{font-size:16px;color:#999;width:50px;position: absolute;z-index:11; right: 0px;/*top: 6px; */text-align:center;border-top: 1px dashed #e5e5e5;padding:5px 0;}
+                .ui-menu-item{ *width:439px;vertical-align: middle;position: relative;margin: 0px;margin-right: 50px !important;background:#fff;border-right: 1px dashed #ededed;}
+                .ui-menu-item a{display:block;overflow:hidden;}
+            </style>
+            <script type="text/javascript" src="js/search.min.js"></script>
+            <dl class="company_center_content">
+                <dt>
+                <h1><em></em>搜索结果 <span>（共<i style="color:#fff;font-style:normal" id="positionNumber">{$count}</i>个）</span></h1>
+                </dt>
+                <dd>
+
+
+                    <ul class="reset my_jobs">
+                        <volist name="lists2" id="vo">
+                            <form id="searchForm" action="{:U('Resume/sendresume')}" method="post">
+                                <input type="hidden" value="{$vo.workid}" name="workid">
+                                <input type="hidden" value="{$vo.work_title}" name="work_title">
+                                <li data-id="149594">
+                                    <h3>
+                                        <a target="_blank" title="随便写" href="http://www.lagou.com/jobs/149594.html">{$vo.work_title}</a>
+                                        <span>[{$vo.workaddress}]</span>
+                                    </h3>
+		                        <span class="receivedResumeNo">
+		                            <a href="unHandleResumes.html?positionId=149594">应聘简历({$vo.count})</a>
+		                        </span>
+                                    <div>{$vo.positionname}/ {$vo.salarymin}k-{$vo.salarymax}k / {$vo.workyear}年 / {$vo.education}及以上</div>
+                                    <div class="c9">发布时间： {$vo.create_time}</div>
+                                    <div class="links">
+                                        <input type="submit" class="job_del" value="投递">
+                                    </div>
+                                </li>
+                            </form>
+                        </volist>
+                    </ul>
+                </dd>
+            </dl>
+>>>>>>> 637ce226f2b10e4f2bc123a7452346b4fb4d6c99
         </div>
     </div>
     <div id="footer">

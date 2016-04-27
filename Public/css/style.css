@@ -473,9 +473,10 @@ span.error {
 }
 #container {
 	width: 1024px;
-	/*height: auto;*/
+	min-height: 666px;
+	height: auto;
 	margin: 35px auto 0;
-	padding-bottom: 100px;
+	/*padding-bottom: 100px;*/
 }
 #search_box {
 	width: 744px;
@@ -679,6 +680,8 @@ span.error {
         }
 #sidebar {
 	width: 260px;
+	height: auto;
+	margin-bottom:20px; 
 	*position: relative;
 	float: right;
 }
@@ -687,8 +690,10 @@ span.error {
 	top: 0 !important;
 }
 #sidebar .mainNavs {
+	width: 260px;
+	height: auto;
 	background: #fafafa;
-		border: 1px solid #d3d3d3;
+	border: 1px solid #d3d3d3;
 }
 #sidebar .menu_main {
 	width: 236px;
@@ -799,6 +804,7 @@ span.error {
 	border-bottom: 2px solid #019875;
 }
 .urgent-block {
+	width: 260px;
     height: 308px;
     margin-top:20px; 
     border: 1px solid #d3d3d3;
@@ -867,6 +873,7 @@ span.error {
 /*index content*/
 .content {
 	width: 744px;
+	height: auto;
 	float: left;
 }
 .da-thumbs {
@@ -1221,6 +1228,10 @@ ul.hot_pos i {
 	width: 15px;
 	height: 15px;
 }
+#body{
+	display: block;
+	height: auto;
+}
 #footer {
 	clear: both;
 	height: 100px;
@@ -1537,6 +1548,14 @@ ul.hot_pos i {
 }
 #loginForm a {
 	color: #019875;
+}
+#loginForm legend{
+	width: 296px;
+	font-size: 22px;
+	height: 30px;
+	line-height: 30px;
+	color: #777;
+    margin: 0 0 10px 0;
 }
 #loginForm input#email {
 	width: 296px;
@@ -8401,6 +8420,8 @@ ul.resumeLists li.fileResume .resumeIntro span{	margin-top:-30px;}
 	background-color: #91cebe
 }
 .company_center_content {
+	width: 100%;
+	height: auto;
 	background-color: #fafafa;
 	margin-bottom: 20px;
 	border: 1px solid #d3d3d3;

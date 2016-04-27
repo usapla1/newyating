@@ -8,13 +8,15 @@
     		<a  href="{:U('Index/index')}" class="logo">
     			<img src="{:C('Base_Url')}images/logo4.png" width="400" height="83" alt="招聘" />
     		</a>
-    		<div class="searchBox">
+    		<div class="searchBox" >
     			<form id="searchForm" name="searchForm" action="http://127.0.0.1/newfish/index.php/Home/Index/search/" method="get">
 			        <input type="text" id="search_input" name = "work_title"  tabindex="1" value=""  placeholder="请输入职位名称，如：产品经理,程序员"  />
 	                <input type="submit" id="search_button" value="搜索" />
 	            </form>
+
     		</div>
         </div>
+		<input type="button" id="search_button" value="个人中心"  style="margin-top: -35px;" onclick="location='{:U('Index/come')}'"/>
     </div><!-- end #header -->
     	    <div class="sliderbar">
 	    	<!-- 图片轮播 -->
@@ -65,7 +67,7 @@
 		                            <span>[{$vo.workaddress}]</span>
 		                        </h3>
 		                        <span class="receivedResumeNo">
-		                            <a href="unHandleResumes.html?positionId=149594">应聘简历({$vo.count})</a>
+		                            <a href="http://127.0.0.1/newfish/index.php/Home/Work/workneed/workid/{$vo.workid}">应聘简历({$vo.count})</a>
 		                        </span>
 		                        <div>{$vo.positionname}/ {$vo.salarymin}k-{$vo.salarymax}k / {$vo.workyear}年 / {$vo.education}及以上</div>
 		                        <div class="c9" style="font-size: 14px;">发布时间： {$vo.create_time}</div>
@@ -117,12 +119,17 @@
 				</div>
 				<div class="menu_box">
 					<div class="menu_main">
-						<a class="sidebarHref" href="{:U('Login/index')}" title="个人用户登录"><h2>普通用户登录<span></span></h2></a>
+						<a class="sidebarHref" href="{:U('Login/index')}" title="学生登录"><h2>学生登录<span></span></h2></a>
 					</div>
 				</div>
 				<div class="menu_box">
 					<div class="menu_main">
-						<a class="sidebarHref" href="{:U('Login/index')}" title="企业用户登陆"><h2>管理员登陆<span></span></h2></a>
+						<a class="sidebarHref" href="{:U('Login/index_work')}" title="企业用户登陆"><h2>企业用户登陆<span></span></h2></a>
+					</div>
+				</div>
+				<div class="menu_box">
+					<div class="menu_main">
+						<a class="sidebarHref" href="{:U('Login/index_admin')}" title="管理员登陆"><h2>管理员登陆<span></span></h2></a>
 					</div>
 				</div>
 				<div class="menu_box">

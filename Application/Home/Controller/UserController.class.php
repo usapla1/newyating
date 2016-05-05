@@ -15,10 +15,10 @@ class UserController extends BaseController{
 	public function index()
 	{
 		if(empty($_SESSION['userid'])){
-			$this->error("对不起，请先登录","http://127.0.0.1/newfish/index.php/Home/Login/index");
+			$this->error("对不起，请先登录！",U('Login/index'),1);
 		}
 		if($_SESSION['role'] != 1 ){
-			$this->error("对不起，您没有权限进入该页面".$_SESSION['role'],"http://127.0.0.1/newfish/index.php/Home/Login/index");
+			$this->error("对不起，您没有权限进入该页面！",U('Login/index'),1);
 		}
 		$map = array();
 		$map['userid'] = $_SESSION['userid'];
@@ -30,41 +30,14 @@ class UserController extends BaseController{
 		$this->display();
 	}
 
-	//个人信息编辑
-	public function edit()
-	{
-		if(empty($_SESSION['user_id'])){
-			$this->ajaxReturn("Resume","请先登录",false);
-		}
-		if($_SESSION['role'] !== 1 ){
-			$this->ajaxReturn("Work","对不起，您没有权限进入该页面",false);
-		}
-		$map = array();
-		$map['user_id'] = $_SESSION['user_id'];
-		$data = array();
-		$data['name'] = I('post.name');
-		$data['sex'] = I('post.sex');
-		$data['age'] = I('post.age');
-		$data['edu'] = I('post.edu');
-		$data['like'] = I('post.like');
-		$data['skill'] = I('post.skill');
-		$UsersDao = M('Users');
-		$result =  $UsersDao->where($map)->save($data);
-		if(!empty($result)){
-			$this->ajaxReturn("User","保存成功",true);
-		}else{
-			$this->ajaxReturn("User","保存失败",true);
-		}
-	}
-
 	//查看投递的简历
 	public function apply()
 	{
 		if(empty($_SESSION['userid'])){
-			$this->error("对不起，请先登录","http://127.0.0.1/newfish/index.php/Home/Login/index");
+			$this->error("对不起，请先登录！",U('Login/index'),1);
 		}
 		if($_SESSION['role'] != 1 ){
-			$this->error("对不起，您没有权限进入该页面".$_SESSION['role'],"http://127.0.0.1/newfish/index.php/Home/Login/index");
+			$this->error("对不起，您没有权限进入该页面！",U('Login/index'),1);
 		}
 		$map = array();
 		$map['userid'] = $_SESSION['userid'];
@@ -82,10 +55,10 @@ class UserController extends BaseController{
 	public function feedback()
 	{
 		if(empty($_SESSION['userid'])){
-			$this->error("对不起，请先登录","http://127.0.0.1/newfish/index.php/Home/Login/index");
+			$this->error("对不起，请先登录！",U('Login/index'),1);
 		}
 		if($_SESSION['role'] != 1 ){
-			$this->error("对不起，您没有权限进入该页面".$_SESSION['role'],"http://127.0.0.1/newfish/index.php/Home/Login/index");
+			$this->error("对不起，您没有权限进入该页面！",U('Login/index'),1);
 		}
 		$userid = $_SESSION['userid'];
 		$map = array();
@@ -104,10 +77,10 @@ class UserController extends BaseController{
 	public function fbdel()
 	{
 		if(empty($_SESSION['userid'])){
-			$this->error("对不起，请先登录","http://127.0.0.1/newfish/index.php/Home/Login/index");
+			$this->error("对不起，请先登录！",U('Login/index'),1);
 		}
 		if($_SESSION['role'] != 1 ){
-			$this->error("对不起，您没有权限进入该页面".$_SESSION['role'],"http://127.0.0.1/newfish/index.php/Home/Login/index");
+			$this->error("对不起，您没有权限进入该页面！",U('Login/index'),1);
 		}
 		$mailsmsid = I('mailsmsid');
 		$map = array();
@@ -125,10 +98,10 @@ class UserController extends BaseController{
 	public function apdel()
 	{
 		if(empty($_SESSION['userid'])){
-			$this->error("对不起，请先登录","http://127.0.0.1/newfish/index.php/Home/Login/index");
+			$this->error("对不起，请先登录！",U('Login/index'),1);
 		}
 		if($_SESSION['role'] != 1 ){
-			$this->error("对不起，您没有权限进入该页面".$_SESSION['role'],"http://127.0.0.1/newfish/index.php/Home/Login/index");
+			$this->error("对不起，您没有权限进入该页面！",U('Login/index'),1);
 		}
 		$seekid = I('seekid');
 		$map = array();
@@ -145,10 +118,10 @@ class UserController extends BaseController{
 	public function uppwd()
 	{
 		if(empty($_SESSION['userid'])){
-			$this->error("对不起，请先登录","http://127.0.0.1/newfish/index.php/Home/Login/index");
+			$this->error("对不起，请先登录！",U('Login/index'),1);
 		}
 		if($_SESSION['role'] != 1 ){
-			$this->error("对不起，您没有权限进入该页面".$_SESSION['role'],"http://127.0.0.1/newfish/index.php/Home/Login/index");
+			$this->error("对不起，您没有权限进入该页面！",U('Login/index'),1);
 		}
 		$repassword = I('repassword');
 		$this->assign('repassword',$repassword);
@@ -158,10 +131,10 @@ class UserController extends BaseController{
 	public function updatepwd()
 	{
 		if(empty($_SESSION['userid'])){
-			$this->error("对不起，请先登录","http://127.0.0.1/newfish/index.php/Home/Login/index");
+			$this->error("对不起，请先登录！",U('Login/index'),1);
 		}
 		if($_SESSION['role'] != 1 ){
-			$this->error("对不起，您没有权限进入该页面".$_SESSION['role'],"http://127.0.0.1/newfish/index.php/Home/Login/index");
+			$this->error("对不起，您没有权限进入该页面！",U('Login/index'),1);
 		}
 		$repassword = I('repassword');
 		$password = I('password');

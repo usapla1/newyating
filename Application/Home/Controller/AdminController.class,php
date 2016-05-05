@@ -1,0 +1,59 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2016-03-31
+ * Time: 22:07
+ */
+namespace Home\Controller;
+use Think\Controller;
+use Think\Verify;
+use Home\Common;
+use Home\Controller\Base;
+
+class AdminController extends BaseController{
+    //管理员信息首页
+    public function index()
+    {
+        if(empty($_SESSION['userid'])){
+            $this->error("对不起，请先登录！",U('Login/index'),1);
+        }
+        if($_SESSION['role'] != 3 ){
+            $this->error("对不起，您没有权限进入该页面！",U('Login/index'),1);
+        }
+        $map = array();
+        $map['userid'] = $_SESSION['userid'];
+        $NewsDao = M('News');
+        $list =  $NewsDao->where($map)->select();
+        $user = $_SESSION['username'];
+        $this->assign('user',$user);
+        $this->assign('list',$list);
+        $this->display();
+    }
+
+    //新增新闻
+    public function addnews()
+    {
+        if(empty($_SESSION['userid'])){
+            $this->error("对不起，请先登录！",U('Login/index'),1);
+        }
+        if($_SESSION['role'] != 3 ){
+            $this->error("对不起，您没有权限进入该页面！",U('Login/index'),1);
+        }
+
+        $data = array();
+        $data['userid'] = $_SESSION['userid'];
+        $data['news_title'] = I('post.news_title');
+        $data['news_about'] = I('post.news_about');
+        $data['news_url'] = I('post.news_url');
+        $NewsDao = M('News');
+        $result =  $NewsDao->add($data);
+        $user = $_SESSION['username'];
+        $this->assign('user',$user);
+        if(!empty($result)){
+            $this->success("新闻发布成功",U('Admin/index'));
+        }else{
+            $this->error("新闻保存失败");
+        }
+    }
+}

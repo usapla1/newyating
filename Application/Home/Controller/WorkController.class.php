@@ -12,15 +12,33 @@ use Home\Common;
 use Home\Controller\Base;
 
 class WorkController extends BaseController{
+
+    //企业信息首页
+    public function work()
+    {
+        if(empty($_SESSION['userid'])){
+            $this->error("对不起，请先登录！",U('Login/index'),1);
+        }
+        if($_SESSION['role'] != 2 ){
+            $this->error("对不起，您没有权限进入该页面！",U('Login/index'),1);
+        }
+        $map = array();
+        $map['userid'] = $_SESSION['userid'];
+        $BossDao = M('Boss');
+        $list =  $BossDao->where($map)->find();
+        $user = $_SESSION['username'];
+        $this->assign('user',$user);
+        $this->assign('list',$list);
+        $this->display();
+    }
+
     //企业岗位表首页
     public function index(){
         if(empty($_SESSION['userid'])){
-            $this->error("请先登录");
-            //$this->ajaxReturn("Work","请先登录",false);
+            $this->error("对不起，请先登录！",U('Login/index'),1);
         }
         if($_SESSION['role'] != 2 ){
-            $this->error("对不起，您没有权限进入该页面1".$_SESSION['role'],"http://127.0.0.1/newfish/index.php/Home/Login/index");
-            //$this->ajaxReturn("Work","对不起，您没有权限进入该页面",false);
+            $this->error("对不起，您没有权限进入该页面！",U('Login/index'),1);
         }
         $map = array();
         $map['userid'] = $_SESSION['userid'];
@@ -37,13 +55,11 @@ class WorkController extends BaseController{
     //新增职位
     public function creat()
     {
-        if (empty($_SESSION['userid'])) {
-            $this->error("请先登录");
-            //$this->ajaxReturn("Work","请先登录",false);
+        if(empty($_SESSION['userid'])){
+            $this->error("对不起，请先登录！",U('Login/index'),1);
         }
-        if ($_SESSION['role'] != 2) {
-            $this->error("对不起，您没有权限进入该页面");
-            //$this->ajaxReturn("Work","对不起，您没有权限进入该页面",false);
+        if($_SESSION['role'] != 2 ){
+            $this->error("对不起，您没有权限进入该页面！",U('Login/index'),1);
         }
         $user = $_SESSION['username'];
         $this->assign('user',$user);
@@ -52,12 +68,11 @@ class WorkController extends BaseController{
     //查看职位详情
     public function workneed()
     {
-        if (empty($_SESSION['userid'])) {
-            $this->error("请先登录");
-            //$this->ajaxReturn("Work","请先登录",false);
+        if(empty($_SESSION['userid'])){
+            $this->error("对不起，请先登录！",U('Login/index'),1);
         }
-        if ($_SESSION['role'] != 2) {
-            $this->error("对不起，您没有权限进入该页面","http://127.0.0.1/newfish/index.php/Home/Index/index");
+        if($_SESSION['role'] != 2 ){
+            $this->error("对不起，您没有权限进入该页面！",U('Login/index'),1);
         }
         $workid = I('workid');
         $map = array();
@@ -74,11 +89,6 @@ class WorkController extends BaseController{
     //查看职位详情
     public function workinfo()
     {
-        if (empty($_SESSION['userid'])) {
-            $this->error("请先登录");
-            //$this->ajaxReturn("Work","请先登录",false);
-        }
-
         $workid = I('workid');
         $map = array();
         $map['workid'] = $workid;
@@ -92,13 +102,11 @@ class WorkController extends BaseController{
     //职位筛选
     public function workchose()
     {
-        if (empty($_SESSION['userid'])) {
-            $this->error("请先登录");
-            //$this->ajaxReturn("Work","请先登录",false);
+        if(empty($_SESSION['userid'])){
+            $this->error("对不起，请先登录！",U('Login/index'),1);
         }
-        if ($_SESSION['role'] != 2) {
-            $this->error("对不起，您没有权限进入该页面");
-            //$this->ajaxReturn("Work","对不起，您没有权限进入该页面",false);
+        if($_SESSION['role'] != 2 ){
+            $this->error("对不起，您没有权限进入该页面！",U('Login/index'),1);
         }
 
         $ResumeDao = M('Resume');
@@ -114,12 +122,10 @@ class WorkController extends BaseController{
     //新增职位
     public function add(){
         if(empty($_SESSION['userid'])){
-            $this->error("请先登录");
-            //$this->ajaxReturn("Work","请先登录",false);
+            $this->error("对不起，请先登录！",U('Login/index'),1);
         }
         if($_SESSION['role'] != 2 ){
-            $this->error("对不起，您没有权限进入该页面");
-            //$this->ajaxReturn("Work","对不起，您没有权限进入该页面",false);
+            $this->error("对不起，您没有权限进入该页面！",U('Login/index'),1);
         }
         $data = array();
         $data['userid'] = $_SESSION['userid'];
@@ -149,12 +155,10 @@ class WorkController extends BaseController{
     //职位编辑
     public function doedit(){
         if(empty($_SESSION['userid'])){
-            $this->error("请先登录");
-            //$this->ajaxReturn("Work","请先登录",false);
+            $this->error("对不起，请先登录！",U('Login/index'),1);
         }
         if($_SESSION['role'] != 2 ){
-            $this->error("对不起，您没有权限进入该页面");
-            //$this->ajaxReturn("Work","对不起，您没有权限进入该页面",false);
+            $this->error("对不起，您没有权限进入该页面！",U('Login/index'),1);
         }
         $map = array();
         $map['userid'] = $_SESSION['userid'];
@@ -169,12 +173,10 @@ class WorkController extends BaseController{
     //职位编辑
     public function edit(){
         if(empty($_SESSION['userid'])){
-            $this->error("请先登录");
-            //$this->ajaxReturn("Work","请先登录",false);
+            $this->error("对不起，请先登录！",U('Login/index'),1);
         }
         if($_SESSION['role'] != 2 ){
-            $this->error("对不起，您没有权限进入该页面");
-            //$this->ajaxReturn("Work","对不起，您没有权限进入该页面",false);
+            $this->error("对不起，您没有权限进入该页面！",U('Login/index'),1);
         }
         $map = array();
         $map['userid'] = $_SESSION['userid'];
@@ -208,12 +210,10 @@ class WorkController extends BaseController{
     //岗位删除
     public function del(){
         if(empty($_SESSION['userid'])){
-            $this->error("请先登录");
-            //$this->ajaxReturn("Work","请先登录",false);
+            $this->error("对不起，请先登录！",U('Login/index'),1);
         }
         if($_SESSION['role'] != 2 ){
-            $this->error("对不起，您没有权限进入该页面");
-            //$this->ajaxReturn("Work","对不起，您没有权限进入该页面",false);
+            $this->error("对不起，您没有权限进入该页面！",U('Login/index'),1);
         }
         $map = array();
         $map['userid'] = $_SESSION['userid'];
@@ -232,12 +232,10 @@ class WorkController extends BaseController{
     //查看职位下求职者的列表
     public function seejob(){
         if(empty($_SESSION['userid'])){
-            $this->error("请先登录");
-            //$this->ajaxReturn("Work","请先登录",false);
+            $this->error("对不起，请先登录！",U('Login/index'),1);
         }
         if($_SESSION['role'] != 2 ){
-            $this->error("对不起，您没有权限进入该页面");
-            //$this->ajaxReturn("Work","对不起，您没有权限进入该页面",false);
+            $this->error("对不起，您没有权限进入该页面！",U('Login/index'),1);
         }
         $sEcho = 0;
         $map = array();
@@ -251,12 +249,10 @@ class WorkController extends BaseController{
     //查看应聘者详细信息
     public function seeUserinfo(){
         if(empty($_SESSION['userid'])){
-            $this->error("请先登录");
-            //$this->ajaxReturn("Work","请先登录",false);
+            $this->error("对不起，请先登录！",U('Login/index'),1);
         }
         if($_SESSION['role'] != 2 ){
-            $this->error("对不起，您没有权限进入该页面");
-            //$this->ajaxReturn("Work","对不起，您没有权限进入该页面",false);
+            $this->error("对不起，您没有权限进入该页面！",U('Login/index'),1);
         }
         $map = array();
         $map['cb_submit.work_id'] = I('post.work_id');
@@ -269,12 +265,10 @@ class WorkController extends BaseController{
     //查看应聘者简历信息
     public function seeResumeinfo(){
         if(empty($_SESSION['userid'])){
-            $this->error("请先登录");
-            //$this->ajaxReturn("Work","请先登录",false);
+            $this->error("对不起，请先登录！",U('Login/index'),1);
         }
         if($_SESSION['role'] != 2 ){
-            $this->error("对不起，您没有权限进入该页面");
-            //$this->ajaxReturn("Work","对不起，您没有权限进入该页面",false);
+            $this->error("对不起，您没有权限进入该页面！",U('Login/index'),1);
         }
         $map = array();
         $map['cb_submit.work_id'] = I('post.work_id');

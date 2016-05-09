@@ -10,6 +10,10 @@ class RegisterController extends BaseController{
 	public function index(){
 		$this->display();
 	}
+	//企业登录
+	public function index_work(){
+		$this->display();
+	}
 	//注册操作
 	public function register(){
 		$data = array();

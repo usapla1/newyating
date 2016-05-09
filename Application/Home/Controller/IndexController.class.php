@@ -7,6 +7,8 @@ class IndexController extends BaseController{
     //主页
     public function index(){
         $Works = M('Work');
+        $map = array();
+        $map ['is_pass'] = 1;
         $lists2 = $Works->select();
         $count = $Works->count();
         $user = $_SESSION['username'];

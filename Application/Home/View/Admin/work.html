@@ -46,7 +46,7 @@
         <div class="content"  style="margin-left: 50px;">
             <dl class="company_center_content">
                 <dt>
-                <h1><em></em>新闻列表 <span>（共<i style="color:#fff;font-style:normal" id="positionNumber">{$count}</i>个）</span></h1>
+                <h1><em></em>工作列表 <span>（共<i style="color:#fff;font-style:normal" id="positionNumber">{$count}</i>个）</span></h1>
                 </dt>
                 <dd>
                     <form id="searchForm">
@@ -54,11 +54,11 @@
                         <ul class="reset my_jobs">
                             <volist name="list" id="vo">
                                 <li data-id="{$vo.newsid}">
-                                    <h3><a target="_blank"  href="{$vo.news_url}">{$vo.news_title}</a><span>类别：{$vo.news_about}</span></h3>
-                                    <div class="c9">发布时间： {$vo.add_time}</div>
+                                    <h3>职位名：{$vo.work_title}</h3>
+                                    <div class="c9">发布时间： {$vo.creat_time}</div>
                                     <div class="links">
                                         <a class="job_refresh" href="javascript:location.reload()">刷新<span>每个职位7天内只能刷新一次</span></a>
-                                        <a class="job_del" href="http://127.0.0.1/newyating/index.php?s=/Home/Admin/delnews/newsid/{$vo.newsid}">删除</a>
+                                        <a class="job_del" href="http://127.0.0.1/newyating/index.php?s=/Home/Admin/checkwork/workid/{$vo.workid}">审核</a>
                                     </div>
                                 </li>
                             </volist>

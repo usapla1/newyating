@@ -12,8 +12,16 @@ use Home\Common;
 use Home\Controller\Base;
 
 class LoginController extends BaseController{
-    //登录首页
+    //学生登录
     public function index(){
+        $this->display();
+    }
+    //企业登录
+    public function index_work(){
+        $this->display();
+    }
+    //管理员登录
+    public function index_admin(){
         $this->display();
     }
 
@@ -26,7 +34,7 @@ class LoginController extends BaseController{
         // 检查验证码
         $verify = I('param.verify','');
         if(!$this->check_verify($verify)){
-            $this->error("亲，验证码输错了哦！",U('Login/index'),1);
+            $this->error("亲，验证码输错了哦！",U('Index/index'));
         }
         $Users = M('Users');
         $result =  $Users->where($map)->find();
@@ -38,13 +46,13 @@ class LoginController extends BaseController{
                 $this->success("登录成功",U('Work/index'));
             }elseif($result['role'] == 1){
                 $this->success("登录成功",U('User/index'));
+            }elseif($result['role'] == 3){
+                $this->success("登录成功",U('Admin/index'));
             }
-            //$this->ajaxReturn("login","登录成功",true);
         }else{
-            $this->error("亲，登录失败了！",U('Login/index'),1);
+            $this->error("亲，登录失败了！",U('Index/index'));
 
         }
-        //$this->display();
     }
 
     /**

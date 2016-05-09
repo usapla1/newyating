@@ -1,0 +1,86 @@
+<block name="include"><include file="Public:header5" /></block>
+<body>
+<div id="body">
+    <div id="header">
+        <div class="wrapper">
+            <a  href="{:U('Index/index')}" class="logo" style="margin:10px auto">
+          <img src="{:C('Base_Url')}images/logo4.png" width="400" height="83" alt="招聘" />
+        </a>
+            <ul id="navheader" class="reset">
+                <li><a href="{:U('Index/index')}">首页</a></li>
+                <li class="current"><a rel="nofollow" href="{:U('Work/index')}">职位管理</a></li>
+            </ul>
+            <dl class="collapsible_menu">
+                <dt>
+                    <span>{$user}&nbsp;</span>
+                    <span class="red dn" id="noticeDot-1"></span>
+                    <i></i>
+                </dt>
+                <dd style="display: none;">
+                    <a href="{:U('Work/index')}">我发布的职位</a>
+                </dd>
+                <dd style="display: none;">
+                    <a href="{:U('Work/workchose')}">我收到的简历</a>
+                </dd>
+                <dd class="btm" style="display: none;">
+                    <a href="{:U('Index/index')}">我的公司主页</a>
+                </dd>
+                <dd class="logout" style="display: none;">
+                    <a rel="nofollow" href="{:U('Index/logout')}">退出</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <!-- end #header -->
+    <div id="container">
+            <div class="sidebar">
+                <a class="btn_create" href="{:U('Admin/create')}">发布新闻</a>
+                <dl class="company_center_aside">
+                    <dt>后台管理中心</dt>
+                    <dd><a href="{:U('Admin/index')}">新闻列表</a></dd>
+                    <dd><a href="{:U('Admin/work')}">职位列表</a></dd>
+                    <dd><a href="{:U('Admin/resume')}">简历列表</a></dd>
+                </dl>
+            </div>
+        <!-- end .sidebar -->
+        <div class="content"  style="margin-left: 50px;">
+            <dl class="company_center_content">
+                <dt>
+                <h1><em></em>发布新闻</h1>
+                </dt>
+                <dd>
+                    <form action="{:U('Admin/addnews')}" method="post" id="jobForm">
+                        <table class="btm">
+                            <tbody>
+                            <tr>
+                                <td><span class="redstar">*</span></td>
+                                <td>标题</td>
+                                <td> <input type="text" placeholder="请输入新闻标题" value="" name="news_title" id="positionName" /> </td>
+                            </tr>
+                            <tr>
+                                <td><span class="redstar">*</span></td>
+                                <td>新闻地址</td>
+                                <td> <input type="text" placeholder="请输入新闻地址" value="" name="news_url" id="positionName" /> </td>
+                            </tr>
+                            <tr>
+                                <td width="25"><span class="redstar">*</span></td>
+                                <td width="85">新闻类别</td>
+                                <td> <input type="text" id="positionType" value="" name="news_about" placeholder="新闻类别"/>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                            <tbody>
+                            <tr>
+                                <td width="25"></td>
+                                <td colspan="2"> <input type="submit" value="发布" id="jobPreview" class="btn_32" /> </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <!-- end #body -->
+    <block name="include"><include file="Public:footer3" /></block>
